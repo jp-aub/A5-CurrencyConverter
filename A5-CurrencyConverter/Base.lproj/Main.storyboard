@@ -57,6 +57,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RKB-w4-ubS">
                                                         <rect key="frame" x="144" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="poundSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="zS3-Rw-lz4"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -71,6 +74,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bDA-US-wxA">
                                                         <rect key="frame" x="144" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="euroSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="P2P-BH-p9G"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -85,6 +91,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RBG-GR-abM">
                                                         <rect key="frame" x="144" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="pesoSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="lNY-vj-GCO"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -99,6 +108,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQq-sD-oLw">
                                                         <rect key="frame" x="144" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="yenSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qse-Sp-r3j"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -107,6 +119,9 @@
                                                 <color key="backgroundColor" red="0.84313726430000002" green="0.62352943419999995" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="convert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ev-E1-lUs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -122,6 +137,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EIw-w4-HJT" secondAttribute="trailing" constant="77" id="kF4-uv-meu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usdAmount" destination="IEk-pv-ZZ3" id="AHy-72-ctj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,7 +160,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="4pG-6t-5yz">
-                                <rect key="frame" x="52" y="570" width="288" height="177.33333333333337"/>
+                                <rect key="frame" x="52" y="570" width="288" height="177.33333333333334"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-w1-fxe">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="20.333333333333332"/>
@@ -162,7 +180,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jCS-Cw-0HY">
-                                        <rect key="frame" x="0.0" y="52.333333333333371" width="288" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="52.333333333333336" width="288" height="20.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLf-MN-Jot">
                                                 <rect key="frame" x="0.0" y="0.0" width="139" height="20.333333333333332"/>
@@ -179,7 +197,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Js-2s-2iW">
-                                        <rect key="frame" x="0.0" y="104.66666666666663" width="288" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="104.66666666666667" width="288" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnA-qo-8ia">
                                                 <rect key="frame" x="0.0" y="0.0" width="139" height="20.333333333333332"/>
