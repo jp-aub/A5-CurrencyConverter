@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // Set default for invalid error label to be hidden
         invalidLabel.isHidden = true
+        
+        // UI adjustments
         convertBtn.layer.cornerRadius = 12
     }
     
@@ -46,7 +50,6 @@ class ViewController: UIViewController {
         } else {
             invalidLabel.isHidden = false
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,9 +71,7 @@ class ViewController: UIViewController {
             navigation.pesoChecked = currencyLogic.getPesoSwitch()
             navigation.yenChecked = currencyLogic.getYenSwitch()
         }
-        
     }
-
 }
 
 
