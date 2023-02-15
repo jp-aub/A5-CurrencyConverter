@@ -11,13 +11,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var usdAmount: UITextField!
     @IBOutlet weak var invalidLabel: UILabel!
-    
+    @IBOutlet weak var convertBtn: UIButton!
     var currencyLogic = CurrencyLogic()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         invalidLabel.isHidden = true
+        convertBtn.layer.cornerRadius = 12
     }
     
     @IBAction func poundSelected(_ sender: UISwitch) {
@@ -38,10 +39,9 @@ class ViewController: UIViewController {
     
     @IBAction func convert(_ sender: UIButton) {
         let notAllowed = CharacterSet.letters
-        if usdAmount.text?.rangeOfCharacter(from: notAllowed) == nil {
+        if usdAmount.text?.rangeOfCharacter(from: notAllowed) == nil && usdAmount.text != "" {
             invalidLabel.isHidden = true
-            let amount = Int(usdAmount.text!)
-            currencyLogic.convert(amount!)
+            currencyLogic.convert(usdAmount.text!)
             self.performSegue(withIdentifier: "toCurrencyConversion", sender: self)
         } else {
             invalidLabel.isHidden = false
@@ -54,6 +54,8 @@ class ViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "toCurrencyConversion" {
             let navigation = segue.destination as! CurrencyConvertedView
+            
+            // Set currency values
             navigation.usd = usdAmount.text!
             navigation.gbp = currencyLogic.getPound()
             navigation.euro = currencyLogic.getEuro()

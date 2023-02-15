@@ -49,7 +49,7 @@ class CurrencyConvertedView: UIViewController {
     }
     
     func displayConversion() {
-        amountUSD.text = "$ \(usd)"
+        amountUSD.text = "You entered: $ \(usd)"
         amountGBP.text = "£ \(gbp)"
         amountEuro.text = "€ \(euro)"
         amountPeso.text = "Mex$ \(peso)"

@@ -70,22 +70,22 @@ struct CurrencyLogic {
         return yenChecked
     }
     
-    mutating func convert(_ usdAmount : Int) {
-        let usd = Int(usdAmount)
+    mutating func convert(_ usdAmount : String) {
+        let usd = Double(usdAmount)
         if poundChecked {
-            poundResult = Double(usd) * poundRate
+            poundResult = usd! * poundRate
         }
         
         if euroChecked {
-            euroResult = Double(usd) * euroRate
+            euroResult = usd! * euroRate
         }
         
         if pesoChecked {
-            pesoResult = Double(usd) * pesoRate
+            pesoResult = usd! * pesoRate
         }
         
         if yenChecked {
-            yenResult = Double(usd) * yenRate
+            yenResult = usd! * yenRate
         }
     }
     
