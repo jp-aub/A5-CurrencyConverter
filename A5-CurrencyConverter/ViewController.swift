@@ -10,91 +10,62 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var usdAmount: UITextField!
+    @IBOutlet weak var invalidLabel: UILabel!
     
-    var poundRate : Double = 0.82
-    var euroRate : Double = 0.93
-    var pesoRate : Double = 18.52
-    var yenRate : Double = 133.26
-    var poundChecked : Bool = true;
-    var euroChecked : Bool = true;
-    var pesoChecked : Bool = true;
-    var yenChecked : Bool = true;
-    
-    @IBAction func poundSelected(_ sender: UISwitch) {
-        if sender.isOn {
-            poundChecked = true
-        } else {
-            poundChecked = false
-        }
-    }
-    
-    @IBAction func euroSelected(_ sender: UISwitch) {
-        if sender.isOn {
-            euroChecked = true
-        } else {
-            euroChecked = false
-        }
-    }
-    
-    @IBAction func pesoSelected(_ sender: UISwitch) {
-        if sender.isOn {
-            pesoChecked = true
-        } else {
-            pesoChecked = false
-        }
-    }
-    
-    @IBAction func yenSelected(_ sender: UISwitch) {
-        if sender.isOn {
-            yenChecked = true
-        } else {
-            yenChecked = false
-        }
-    }
-    
-    @IBAction func convert(_ sender: UIButton) {
-        let usd = Int(usdAmount.text!)
-        if poundChecked {
-            print(convertToGBP(usd!))
-        }
-        
-        if euroChecked {
-            print(convertToEuro(usd!))
-        }
-        
-        if pesoChecked {
-            print(convertToPeso(usd!))
-        }
-        
-        if yenChecked {
-            print(convertToYen(usd!))
-        }
-    }
-    
+    var currencyLogic = CurrencyLogic()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        invalidLabel.isHidden = true
+    }
+    
+    @IBAction func poundSelected(_ sender: UISwitch) {
+        currencyLogic.setPoundSwitch(sender.isOn)
+    }
+    
+    @IBAction func euroSelected(_ sender: UISwitch) {
+        currencyLogic.setEuroSwitch(sender.isOn)
+    }
+    
+    @IBAction func pesoSelected(_ sender: UISwitch) {
+        currencyLogic.setPesoSwitch(sender.isOn)
+    }
+    
+    @IBAction func yenSelected(_ sender: UISwitch) {
+        currencyLogic.setYenSwitch(sender.isOn)
+    }
+    
+    @IBAction func convert(_ sender: UIButton) {
+        let notAllowed = CharacterSet.letters
+        if usdAmount.text?.rangeOfCharacter(from: notAllowed) == nil {
+            invalidLabel.isHidden = true
+            let amount = Int(usdAmount.text!)
+            currencyLogic.convert(amount!)
+            self.performSegue(withIdentifier: "toCurrencyConversion", sender: self)
+        } else {
+            invalidLabel.isHidden = false
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "toCurrencyConversion" {
+            let navigation = segue.destination as! CurrencyConvertedView
+            navigation.usd = usdAmount.text!
+            navigation.gbp = currencyLogic.getPound()
+            navigation.euro = currencyLogic.getEuro()
+            navigation.peso = currencyLogic.getPeso()
+            navigation.yen = currencyLogic.getYen()
+            
+            // Disable labels as appropriate
+            navigation.poundStack?.isHidden = true
+        }
+        
     }
 
-    func convertToGBP(_ usd: Int) -> Double {
-        let converted : Double = Double(usd) * poundRate
-        return converted
-    }
-    
-    func convertToEuro(_ usd: Int) -> Double {
-        let converted : Double = Double(usd) * euroRate
-        return converted
-    }
-    
-    func convertToPeso(_ usd: Int) -> Double {
-        let converted : Double = Double(usd) * pesoRate
-        return converted
-    }
-    
-    func convertToYen(_ usd: Int) -> Double {
-        let converted : Double = Double(usd) * yenRate
-        return converted
-    }
 }
 
 

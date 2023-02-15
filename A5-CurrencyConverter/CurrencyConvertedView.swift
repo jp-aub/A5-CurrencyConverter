@@ -9,10 +9,27 @@ import UIKit
 
 class CurrencyConvertedView: UIViewController {
 
+    @IBOutlet weak var amountUSD: UILabel!
+    @IBOutlet weak var amountGBP: UILabel!
+    @IBOutlet weak var amountEuro: UILabel!
+    @IBOutlet weak var amountPeso: UILabel!
+    @IBOutlet weak var amountYen: UILabel!
+    @IBOutlet weak var poundStack: UIStackView!
+    var usd = ""
+    var gbp = ""
+    var euro = ""
+    var peso = ""
+    var yen = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        amountUSD.text = "$ \(usd)"
+        amountGBP.text = "£ \(gbp)"
+        amountEuro.text = "€ \(euro)"
+        amountPeso.text = "Mex$ \(peso)"
+        amountYen.text = "¥ \(yen)"
+        
     }
     
 

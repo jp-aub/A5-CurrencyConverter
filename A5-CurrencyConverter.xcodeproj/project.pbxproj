@@ -14,6 +14,7 @@
 		E80E793F299BD90E00751A6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E80E793E299BD90E00751A6F /* Assets.xcassets */; };
 		E80E7942299BD90E00751A6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E80E7940299BD90E00751A6F /* LaunchScreen.storyboard */; };
 		E80E794C299BF5BA00751A6F /* CurrencyConvertedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80E794B299BF5BA00751A6F /* CurrencyConvertedView.swift */; };
+		E80E794F299C005E00751A6F /* CurrencyLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80E794E299C005E00751A6F /* CurrencyLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E80E7941299BD90E00751A6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E80E7943299BD90E00751A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E80E794B299BF5BA00751A6F /* CurrencyConvertedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertedView.swift; sourceTree = "<group>"; };
+		E80E794E299C005E00751A6F /* CurrencyLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		E80E7934299BD90D00751A6F /* A5-CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				E80E794D299C004D00751A6F /* Model */,
 				E80E7935299BD90D00751A6F /* AppDelegate.swift */,
 				E80E7937299BD90D00751A6F /* SceneDelegate.swift */,
 				E80E7939299BD90D00751A6F /* ViewController.swift */,
@@ -68,6 +71,14 @@
 				E80E794B299BF5BA00751A6F /* CurrencyConvertedView.swift */,
 			);
 			path = "A5-CurrencyConverter";
+			sourceTree = "<group>";
+		};
+		E80E794D299C004D00751A6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E80E794E299C005E00751A6F /* CurrencyLogic.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 				E80E7936299BD90D00751A6F /* AppDelegate.swift in Sources */,
 				E80E794C299BF5BA00751A6F /* CurrencyConvertedView.swift in Sources */,
 				E80E7938299BD90D00751A6F /* SceneDelegate.swift in Sources */,
+				E80E794F299C005E00751A6F /* CurrencyLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
