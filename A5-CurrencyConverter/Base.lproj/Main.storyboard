@@ -257,7 +257,10 @@
                         <outlet property="amountPeso" destination="HqB-XG-Uyp" id="ccd-26-cce"/>
                         <outlet property="amountUSD" destination="fum-Ia-HWO" id="02S-23-m04"/>
                         <outlet property="amountYen" destination="aBm-gn-lMg" id="GLG-dd-IXS"/>
+                        <outlet property="euroStack" destination="jCS-Cw-0HY" id="FTd-dJ-dKJ"/>
+                        <outlet property="pesoStack" destination="6Js-2s-2iW" id="taq-J4-XcJ"/>
                         <outlet property="poundStack" destination="2NF-w1-fxe" id="j9i-qh-Qug"/>
+                        <outlet property="yenStack" destination="6Wf-s3-VdQ" id="ZR1-uf-R8r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrf-DM-egU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

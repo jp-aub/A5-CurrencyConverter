@@ -61,7 +61,10 @@ class ViewController: UIViewController {
             navigation.yen = currencyLogic.getYen()
             
             // Disable labels as appropriate
-            navigation.poundStack?.isHidden = true
+            navigation.poundChecked = currencyLogic.getPoundSwitch()
+            navigation.euroChecked = currencyLogic.getEuroSwitch()
+            navigation.pesoChecked = currencyLogic.getPesoSwitch()
+            navigation.yenChecked = currencyLogic.getYenSwitch()
         }
         
     }
