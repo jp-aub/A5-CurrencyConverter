@@ -42,8 +42,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func convert(_ sender: UIButton) {
-        let notAllowed = CharacterSet.letters
-        if usdAmount.text?.rangeOfCharacter(from: notAllowed) == nil && usdAmount.text != "" {
+        let allowed = CharacterSet.decimalDigits
+        let currentText = CharacterSet(charactersIn: usdAmount.text!)
+        if currentText.isSubset(of: allowed) {
             invalidLabel.isHidden = true
             currencyLogic.convert(usdAmount.text!)
             self.performSegue(withIdentifier: "toCurrencyConversion", sender: self)
